@@ -10,7 +10,7 @@ module.registerSetting("boolean", "rename", true);
 module.setSettingVisibility("rename", false);
 module.setSettingVisibility("always", false);
 
-// FUNCTION ONTICK
+// FUNCTION onTick
 module.handle("onTick", function () {
     var manager = module.getSetting("Manager");
     var stealer = module.getSetting("Stealer");
@@ -61,7 +61,7 @@ script.handle("onUnload", function () {
     module.unregister();
 });
 
-/*
+/* GUIs
 if (player.getGUI() != "chest" && player.getGUI() != "clickgui" && player.getGUI() != "chat" && player.getGUI() != "inventory" && player.getGUI() != "undefined") {
     doSomething();
 }
