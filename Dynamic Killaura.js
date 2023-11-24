@@ -13,7 +13,7 @@ module.registerSetting("boolean", "Ladder check", false);
 var killaura = rise.getModule("Killaura");
 var range = 3.0;
 
-// FUNCTION ONTICK
+// FUNCTION onTick
 module.handle("onTick", function () {
     var reach = module.getSetting("Base reach");
     var sprint = module.getSetting("Sprint reach +");
