@@ -6,7 +6,7 @@ module.handle("onTick", function () {
     if (player.isOnGround() && input.isKeyBindJumpDown() && !player.isInWater() && !player.isInLava()) {
         player.jump();
     }
-});
+});d
 
 // UNLOAD
 script.handle("onUnload", function () {
