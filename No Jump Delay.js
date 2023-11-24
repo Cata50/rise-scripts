@@ -1,4 +1,4 @@
-// MODULE
+d// MODULE
 var module = rise.registerModule("No Jump Delay", "Removes the jump delay when holding down spacebar");
 
 // FUNCTION onTick
