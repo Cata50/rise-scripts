@@ -1,5 +1,5 @@
 // MODULE
-var module = rise.registerModule("Funny TP", "Makes you look like Fly TPing - By Cata50");
+var module = rise.registerModule("FakeLag", "Makes you look like lagging serversidedly - By Cata50");
 module.registerSetting("mode", "Skip", "fall", ["fall", "jump", "both"]);
 
 // FUNCTION onTick
