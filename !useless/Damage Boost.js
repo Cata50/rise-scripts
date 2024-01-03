@@ -1,4 +1,4 @@
-// MODULE
+// MODULEd
 var module = rise.registerModule("Damage boost", "By Cata50");
 module.registerSetting("mode", "Mode", "Add", ["Add", "Set", "Fly"]);
 module.registerSetting("number", "flight time", 1.1, 1, 3, 0.001);
