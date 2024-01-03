@@ -3,7 +3,7 @@
  - Fake Lag: Skips falling
  - Reverse: Hypixel damage boost
 # WIP
- - Exhibition: QOL script pack
+ - Exhibition Fork: QOL script pack
 # Useless
  - Manager+: Dynamically enables Manager/Stealer
  - Attitude Info: Shows yaw & pitch
