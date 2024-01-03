@@ -1,8 +1,14 @@
-# QOL
- - No Jump Delay
- - Manager+: A useful script to help smoothen the inventory walk experience on Hypixel, preventing limbos & GUI stealing.
-# Combat QOL
- - Dynamic Killaura: Preventings hitregs/slowdowns/flags [HYPIXEL PATCHED]
- - Damage Boost: Boosts the player when damage taken
-# Debug
- - Attitude Info: Displays player's yaw & pitch
+# Main
+ - No Jump Delay: removes spacebar/speed jump delay
+ - Fake Lag: Skips falling
+ - Reverse: Hypixel damage boost
+# WIP
+ - Exhibition: QOL script pack
+# Useless
+ - Manager+: Dynamically enables Manager/Stealer
+ - Attitude Info: Shows yaw & pitch
+ - Damage Boost: Add/Set/Fly damage boost
+ - Dynamic Killaura: Changes reach based on conditions
+# Archive
+ - TargetHud: customizable targethud
+ - Nodus: TabGUI
