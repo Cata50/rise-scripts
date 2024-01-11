@@ -1,7 +1,7 @@
 // MODULE
 var module = rise.registerModule("FakeLag", "Makes you look like lagging serversidedly - By Cata50");
 
-// FUNCTION onTick
+// FUNCTION ONTICK
 module.handle("onTick", function () {
     var blink = rise.getModule("Blink");
     var speed = rise.getModule("Speed");
