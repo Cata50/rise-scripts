@@ -1,22 +1,16 @@
 // MODULE
-var module = rise.registerModule("FakeLag", "Makes you look like lagging serversidedly - By Cata50");
+var module = rise.registerModule("Fake Lag", "Makes you look like lagging serversidedly - By Cata50");
 
 // FUNCTION ONTICK
 module.handle("onTick", function () {
-    var blink = rise.getModule("Blink");
-    var speed = rise.getModule("Speed");
-    var ground = player.isOnGround();
-    var fall = player.getFallDistance();
-
-
-    if (speed.isEnabled() && fall > 0 && fall <= 1.145) {
+    if (rise.getModule("Speed").isEnabled() && player.getFallDistance() > 0 && player.getFallDistance() < 0.145) {
         rise.blink();
-    } else {
+    } 
+	
+	if (rise.getModule("Speed").isEnabled() && player.getFallDistance > 0.145) {
         rise.dispatch();
     }
 });
 
 // UNLOAD
-script.handle("onUnload", function () {
-    module.unregister();
-});
+script.handle("onUnload", function () { module.unregister(); });
