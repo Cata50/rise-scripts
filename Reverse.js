@@ -9,7 +9,7 @@ module.handle("onTick", function () {
     var motion = player.getMotion();
     var speed = rise.getModule("Speed");
     var velo = rise.getModule("Velocity");
-	var scaffold = rise.getModule("Scaffold");
+    var scaffold = rise.getModule("Scaffold");
 
     if (speed.isEnabled() || scaffold.isEnabled()) {
         velo.setEnabled(false);
@@ -23,6 +23,4 @@ module.handle("onTick", function () {
 });
 
 // UNLOAD
-script.handle("onUnload", function () {
-    module.unregister();
-});
+script.handle("onUnload", function () { module.unregister(); });
