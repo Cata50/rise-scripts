@@ -14,8 +14,8 @@ module.handle("onTick", function () {
     if (speed.isEnabled() || scaffold.isEnabled()) {
         velo.setEnabled(false);
         if (hurt === 9) {
-            player.setMotionX(motion.x * -1);
-            player.setMotionZ(motion.z * -1);
+            player.setMotionX(-motion.x);
+            player.setMotionZ(-motion.z);
         }
     } else {
         velo.setEnabled(true);
