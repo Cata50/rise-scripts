@@ -1,5 +1,5 @@
 // MODULE
-var module = rise.registerModule("Blink No Fall", "test...");
+var module = rise.registerModule("Blink No Fall", "Hypixel Blink No Fall - By Cata50");
 
 var started = false;
 var blink = rise.getModule("Blink");
@@ -32,3 +32,6 @@ module.handle("onTick", function () {
 
 // UNLOAD
 script.handle("onUnload", function () { module.unregister(); });
+
+//current script is perfect if u r slowly walking to the edges and shit but when u r too fast (sprinting) the script update
+//rate cant keep up and the execution for the code (blink enable) is delayed (by the time its enabled on air)
