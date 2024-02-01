@@ -11,7 +11,7 @@ module.handle("onTick", function () {
     var velo = rise.getModule("Velocity");
     var scaffold = rise.getModule("Scaffold");
 
-    if (speed.isEnabled() || scaffold.isEnabled()) {
+    if (speed.isEnabled()) {
         velo.setEnabled(false);
         if (hurt === 9) {
             player.setMotionX(-motion.x);
