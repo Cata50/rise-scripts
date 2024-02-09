@@ -1,5 +1,6 @@
 # Main
  - No Jump Delay: removes spacebar/speed jump delay
+ - Ground Strafe: if on ground & not hurt
  - Reverse: Hypixel damage boost
  - Breaker+: 00 Breaker Velo (Watchdog)
 # WIP
