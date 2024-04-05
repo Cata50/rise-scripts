@@ -1,19 +1,15 @@
 # Main
- - No Jump Delay: removes spacebar/speed jump delay
- - Ground Strafe: if on ground & not hurt
- - Reverse: Hypixel damage boost
- - Breaker+: 00 Breaker Velo (Watchdog)
+ - C50: QoL pack for Rise 6.1.24
 # WIP
- - Exhibition Fork: QOL script pack
- - Filter: Antibot player renderer
+ - Filter: Hypixel Antibot (Bedwars only) // change method to friend add instead of entity remove
+ - Gemstoner: Skyblock Gemstone Macro
 # Useless
- - Manager+: Dynamically enables Manager/Stealer
- - Attitude Info: Shows yaw & pitch
+ - Abyss: z52.'s Abyss overlay fix
+ - Attitude Info: Shows Pitch & Yaw
  - Damage Boost: Add/Set/Fly damage boost
- - Dynamic Killaura: Changes reach based on conditions
- - Fake Lag: Skips falling
- - Abyss: z52's overlay fix
+ - No Jump Delay: jump macro (+ speed njd option)
 # Archive
+ - Defender: places 1 layer of defense (flags vulcan bad packets: scaffold)
+ - Exhibition Fork: OG QoL script pack
+ - Nodus: TabGUI + Dropdown ClickGUI
  - TargetHud: customizable targethud
- - Nodus: TabGUI
- - Blink No Fall: Hypixel Blink No Fall (works but shitty check rates, use packet no fall)
