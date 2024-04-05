@@ -1,5 +1,5 @@
 // MODULE
-var module = rise.registerModule("C50", "QOL Scripts by Cata50 - v1.10.0 (Removed Nuker + FULL Shitless)");
+var module = rise.registerModule("C50", "QOL Scripts by Cata50 for Rise 6.1.24 - v1.10.1 (minor fixes)");
 module.registerSetting("mode", "ScriptMode", "Scripts", "Scripts");
 module.setSettingVisibility("ScriptMode", false);
 
@@ -25,7 +25,7 @@ module.registerSetting("mode", "Playtime", "off", "off", "on");
 module.registerSetting("mode", "Scaffold Overlay", "off", "off", "on");
 
 // Smart
-module.registerSetting("mode", "Smart Modules", "off", "off", "on");
+module.registerSetting("mode", "Smart Modules", "off", "off", "on"); // !ka = autotool, dynamic scaf + if speed = fastfall
 
 // Watchdog Speed
 module.registerSetting("mode", "Watchdog Speed", "off", "off", "on");
@@ -75,40 +75,12 @@ module.handle("onTick", function () {
     if (smartModules != "off") {
         var killaura = rise.getModule("Kill Aura");
         var autoTool = rise.getModule("Auto Tool");
-        var breaker = rise.getModule("Breaker");
-        var scaffold = rise.getModule("Scaffold");
-        var speed = rise.getModule("Speed");
 
         if (killaura.isEnabled()) {
             autoTool.setEnabled(false);
         } else {
             autoTool.setEnabled(true);
         }
-		
-        /* ABANDONED UNTIL SHITTY SCAFFOLD FIXED
-        if (smartModules != "off") {
-            // VERTICAL
-            if (scaffold.isEnabled() && !moving && upward && ground) {
-                scaffold.setEnabled(false);
-                scaffold.setSetting("Tower", "Watchdog");
-                scaffold.setEnabled(true);
-            }
-
-            // HORIZONTAL
-            if (scaffold.isEnabled() && moving && !upward) {
-                scaffold.setEnabled(false);
-                scaffold.setSetting("Sprint", "Watchdog");
-                scaffold.setEnabled(true);
-            }
-
-            // HORIZONTAL + VERTICAL
-            if (scaffold.isEnabled() && moving && upward) {
-                scaffold.setEnabled(false);
-                scaffold.setSetting("Tower", "Disabled");
-                scaffold.setSetting("Sprint", "Watchdog Jump (inconsistent)");
-                scaffold.setEnabled(true);
-            }
-        } */
     }
 });
 
@@ -142,7 +114,7 @@ module.handle("onStrafe", function (strafe) {
         var forwardUp = input.isKeyBindUseItemDown();
         var upward = input.isKeyBindJumpDown();
         
-        if (blockCounter != "off" && totalBlocks == 0) {
+        if (totalBlocks == 0) {
             scaffold.setEnabled(false);
         }
 
