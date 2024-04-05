@@ -1,5 +1,5 @@
 // MODULE
-var module = rise.registerModule("C50", "QOL Scripts by Cata50 for Rise 6.1.24 - v1.10.0 (Removed Nuker + FULL Shitless)");
+var module = rise.registerModule("C50", "QOL Scripts by Cata50 - v1.10.0 (Removed Nuker + FULL Shitless)");
 module.registerSetting("mode", "ScriptMode", "Scripts", "Scripts");
 module.setSettingVisibility("ScriptMode", false);
 
