@@ -1,5 +1,5 @@
 // MODULE
-var module = rise.registerModule("C50", "QOL Scripts by Cata50 for Rise 6.1.24 - v1.10.1 (minor fixes)");
+var module = rise.registerModule("C50", "QOL Scripts by Cata50 for Rise 6.1.24 - v1.10.2 (removed scaf lowhop)");
 module.registerSetting("mode", "ScriptMode", "Scripts", "Scripts");
 module.setSettingVisibility("ScriptMode", false);
 
@@ -36,6 +36,9 @@ module.registerSetting("mode", "Watermark", "off", "off", "on");
 // Air Velo
 module.registerSetting("mode", "Air Velo", "off", "off", "on");
 
+// Block Outline
+module.registerSetting("mode", "Block Outline", "off", "off", "on");
+
 rise.setName("");
 
 var mcFont = render.getMinecraftFontRenderer();
@@ -49,6 +52,8 @@ var playtimeSeconds = 0;
 var blinksTime = 0;
 var scafSpeed = false;
 var scafJumps = 0;
+var result;
+var blockOutlineDelay = 1;
 
 module.handle("onTick", function () {
     var bedPlates = module.getSetting("Bed Plates");
@@ -168,7 +173,6 @@ module.handle("onStrafe", function (strafe) {
             // Horizontal + Vertical
             if (moving && !upward && forwardUp) {
                 speed.setEnabled(true);
-                speed.setSetting("Fast Fall", true);
                 scafSpeed = true;
                 scaffold.setEnabled(false);
                 scaffold.setSetting("Tower", "Disabled");
@@ -665,6 +669,65 @@ module.handle("onRender3D", function () {
         }
 
         return lines;
+    }
+
+    var blockOutline = module.getSetting("Block outline");
+
+    if (blockOutline != "off") {
+
+        function drawBlockOutline(x, y, z, size, color) {
+            var minX = x + (1 - size) / 2;
+            var minY = y + (1 - size) / 2;
+            var minZ = z + (1 - size) / 2;
+
+            var maxX = x + size;
+            var maxY = y + size;
+            var maxZ = z + size;
+
+            render.drawLine3D(minX, minY, minZ, maxX, minY, minZ, color, 3);
+            render.drawLine3D(minX, minY, minZ, minX, maxY, minZ, color, 3);
+            render.drawLine3D(minX, minY, minZ, minX, minY, maxZ, color, 3);
+            render.drawLine3D(maxX, minY, minZ, maxX, maxY, minZ, color, 3);
+            render.drawLine3D(maxX, minY, minZ, maxX, minY, maxZ, color, 3);
+            render.drawLine3D(minX, maxY, minZ, maxX, maxY, minZ, color, 3);
+            render.drawLine3D(minX, maxY, minZ, minX, maxY, maxZ, color, 3);
+            render.drawLine3D(maxX, maxY, minZ, maxX, maxY, maxZ, color, 3);
+            render.drawLine3D(minX, minY, maxZ, maxX, minY, maxZ, color, 3);
+            render.drawLine3D(minX, minY, maxZ, minX, maxY, maxZ, color, 3);
+            render.drawLine3D(maxX, minY, maxZ, maxX, maxY, maxZ, color, 3);
+            render.drawLine3D(minX, maxY, maxZ, maxX, maxY, maxZ, color, 3);
+        }
+
+        function BlockRayTrace(range, viewAngles, PreMotionEvent) {
+            var playerPos = player.getPosition();
+            var yawRadians = (-viewAngles.x % 360) * Math.PI / 180;
+            var pitchRadians = -viewAngles.y * Math.PI / 180;
+
+            var incrementX = Math.sin(yawRadians) * Math.cos(pitchRadians) * 0.25;
+            var incrementY = Math.sin(pitchRadians) * 0.25;
+            var incrementZ = Math.cos(yawRadians) * Math.cos(pitchRadians) * 0.25;
+
+            for (var i = 0; i <= range * 3.7; i++) {
+                var blockX = Math.floor(playerPos.getX() + incrementX * i);
+                var blockY = Math.floor((playerPos.getY() + render.getEyeHeight()) + incrementY * i);
+                var blockZ = Math.floor(playerPos.getZ() + incrementZ * i);
+
+                var name = world.getBlockName(world.newBlockPos(blockX, blockY, blockZ));
+                if (name !== "tile.air.name") {
+                    return [name, rise.newVec3(blockX, blockY, blockZ)];
+                }
+            }
+            return ["none", rise.newVec3(null, null, null)];
+        }
+
+        module.handle("onPreMotion", function (e) {
+            result = BlockRayTrace(5, rise.newVec2(e.getYaw(), e.getPitch()), e);
+            if (blockOutlineDelay != 0) blockOutlineDelay--; // very goated dev fix real
+        });
+
+        if (blockOutlineDelay == 0) {
+            if (result[0] != "none") drawBlockOutline(Math.floor(result[1].x), Math.floor(result[1].y), Math.floor(result[1].z), 1, render.getThemeColor());
+        }
     }
 });
 
