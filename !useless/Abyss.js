@@ -14,6 +14,7 @@ var module = rise.registerModule("Abyss Overlay", "By Z52")
 
 script.handle('onUnload', function() {
 	module.unregister();
+	overlay.unregister();
 });
 
 // Use the command ".overlay" to update the player list for the overlay.
