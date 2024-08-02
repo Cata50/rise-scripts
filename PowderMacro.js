@@ -303,7 +303,7 @@ class PowderMacro {
                 if(this.greatExplorerLvl20 && this.canClickChest() && this.greatExplorerCooldown.hasReached(this.greatExplorerTime)) {
                     ItemUtils.rightClick()
                     this.greatExplorerCooldown.reset()
-                    this.greatExplorerTime = Math.floor(Math.random() * (701 - 400)) + 400;
+                    this.greatExplorerTime = Math.floor(Math.random() * (600 - 400)) + 400;
                 }
                 MovementHelper.setKey("leftclick", this.canMineDuringChest())
             }
@@ -563,7 +563,7 @@ class PowderMacro {
                     this.greatExplorerCooldown.reset()
                     this.state = this.MACROSTATES.TREASURE_SOLVE
                     this.clickedChest = false
-                    this.greatExplorerTime = Math.floor(Math.random() * (200 - 100 + 1)) + 100;
+                    this.greatExplorerTime = Math.floor(Math.random() * (200 - 100)) + 100;
                     MovementHelper.stopMovement()
                 }
                 if(World.getBlockAt(this.targetChest).type.getID() === 0.0 || this.chestTimer.hasReached(1500)) {
