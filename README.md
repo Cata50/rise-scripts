@@ -6,7 +6,6 @@
  - Abyss: z52.'s Abyss overlay fix
  - Attitude Info: Shows Pitch & Yaw
  - Damage Boost: Add/Set/Fly damage boost
- - No Jump Delay: jump macro (+ speed njd option)
 # Archive
  - Defender: places 1 layer of defense (flags vulcan bad packets: scaffold)
  - Exhibition Fork: OG QoL script pack
